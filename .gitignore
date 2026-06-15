@@ -1,0 +1,29 @@
+# Virtual environments
+myenv/
+venv/
+.env
+.env.local
+
+# Python cache & logs
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+logs/
+*.log
+
+# Databases
+*.db
+*.sqlite
+
+# Node dependencies & builds
+node_modules/
+dist/
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db

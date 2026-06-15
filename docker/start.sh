@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Start Celery worker in the background
+# Start Celery worker in the background (using solo pool and concurrency=1 to stay within Render's 512MB Free Tier limit)
 echo "Starting Celery Worker..."
-celery -A backend.app.celery_app.celery_app worker --loglevel=info &
+celery -A backend.app.celery_app.celery_app worker --loglevel=info --concurrency=1 --pool=solo &
 
 # Start Celery beat in the background
 echo "Starting Celery Beat..."
