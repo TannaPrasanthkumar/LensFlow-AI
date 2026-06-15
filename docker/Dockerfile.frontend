@@ -1,0 +1,14 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY ./frontend/package.json ./
+
+RUN npm install
+
+COPY ./frontend ./
+
+EXPOSE 3000
+
+# Run in host mode to allow container port mapping access
+CMD ["npm", "run", "dev", "--", "--host"]
