@@ -52,3 +52,15 @@ def read_root():
 def health_check():
     return {"status": "healthy"}
 
+@app.post("/api/seed", tags=["Admin"])
+def run_db_seed():
+    from scripts.seed_database import seed_database
+    try:
+        seed_database()
+        return {"status": "success", "message": "Database seeded successfully!"}
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return {"status": "error", "detail": str(e)}
+
+
