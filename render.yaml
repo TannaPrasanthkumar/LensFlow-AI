@@ -32,12 +32,12 @@ services:
         generateValue: true
 
   # Frontend static web site (100% Free CDN)
-  - type: static
+  - type: web
     name: eye-oms-frontend-service
-    env: static
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    publishPath: dist
     envVars:
       - key: VITE_API_URL
         value: https://eye-oms-backend.onrender.com # Placeholder - edit this in dashboard after deployment
