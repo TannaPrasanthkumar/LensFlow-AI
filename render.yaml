@@ -1,9 +1,9 @@
 databases:
   - name: eye-oms-db
     databaseName: eye_oms
-    databaseUser: eye_admin
     plan: free
     ipAllowList: []
+
 
 services:
   # Redis
