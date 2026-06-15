@@ -1,7 +1,7 @@
 databases:
   - name: eye-oms-db
     databaseName: eye_oms
-    user: postgres
+    databaseUser: eye_admin
     plan: free
     ipAllowList: []
 
@@ -86,7 +86,4 @@ services:
     plan: free
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: eye-oms-backend
-          property: url
+        value: https://eye-oms-backend.onrender.com # Placeholder - edit this in dashboard after deployment
