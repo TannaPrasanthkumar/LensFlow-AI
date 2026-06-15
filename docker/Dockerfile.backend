@@ -21,10 +21,15 @@ COPY ./ml /app/ml
 COPY ./models /app/models
 COPY ./data /app/data
 COPY ./scripts /app/scripts
+COPY ./docker/start.sh /app/start.sh
+
+# Set execution permission on start.sh
+RUN chmod +x /app/start.sh
 
 # Set python path to allow importing modules correctly
 ENV PYTHONPATH=/app
 
 EXPOSE 8000
 
-CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run all services (FastAPI, worker, beat) from start.sh
+CMD ["/app/start.sh"]
